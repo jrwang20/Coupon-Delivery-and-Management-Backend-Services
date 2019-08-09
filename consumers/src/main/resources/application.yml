@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: Imooc-Passbook
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/passbook?autoReconnect=true
+    username: root
+    password: 123456
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+  data:
+    hbase:
+      quorum: 127.0.0.1:2181
+      rootDir: file:/usr/local/Cellar/hbase/1.3.4/data
+      nodeParent: /hbase
+  redis:
+    host: 127.0.0.1
+    port: 6379
+server:
+  port: 9528
+logging:
+  file: imooc-passbook.log
+  level: debug
