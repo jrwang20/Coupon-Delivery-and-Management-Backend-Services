@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 商户服务接口实现
+ * The Implementation of Merchants Service
  */
 @Slf4j
 @Service
@@ -26,11 +27,13 @@ public class MerchantsServImpl implements IMerchantsServ {
     /**
      * Merchants数据库接口
      * 这里以构造函数的方法进行注入
+     * Autowired the MerchantsRepository
      */
     private final MerchantsDao merchantsDao;
 
     /**
      * Kafka客户端注入，构造函数注入
+     * Autowired the Kafka Template so that we can call the methods to send the message
      */
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -46,17 +49,20 @@ public class MerchantsServImpl implements IMerchantsServ {
         Response response = new Response();
         CreateMerchantsResponse merchantsResponse = new CreateMerchantsResponse();
 
+        //1. validate the request, find that if the merchant already exist
         ErrorCode errorCode = request.validate(merchantsDao);
         if(errorCode != ErrorCode.SUCCESS) {
             merchantsResponse.setId(-1);
             response.setErrorCode(errorCode.getCode());
             response.setErrorMsg(errorCode.getDesc());
         } else {
+            //2. call the repository to save the Merchants Object to Database, and set the ID to response
             merchantsResponse.setId(merchantsDao.save(request.toMerChants()).getId());
         }
 
         response.setData(merchantsResponse);
 
+        //3. build the response VO and return
         return response;
     }
 
@@ -65,6 +71,7 @@ public class MerchantsServImpl implements IMerchantsServ {
 
         Response response = new Response();
 
+        //1. call the repository methods to query the database
         Merchants merchants = merchantsDao.findById(id);
 
         if(merchants == null) {
@@ -74,6 +81,7 @@ public class MerchantsServImpl implements IMerchantsServ {
 
         response.setData(merchants);
 
+        //2. build the response VO and return
         return response;
     }
 
@@ -81,13 +89,16 @@ public class MerchantsServImpl implements IMerchantsServ {
     public Response dropPassTemplate(PassTemplate template) {
 
         Response response = new Response();
+        //1. validate the current merchant, find that if it's a valid merchant
         ErrorCode errorCode = template.validate(merchantsDao);
 
         if(errorCode != ErrorCode.SUCCESS) {
             response.setErrorCode(errorCode.getCode());
             response.setErrorMsg(errorCode.getDesc());
         } else {
+            //2.1. parse the coupon template to String
             String passTemplate = JSON.toJSONString(template);
+            //2.2. using Kafka client to call the send method, with topic, key, and value, sending message to MQ
             kafkaTemplate.send(
                     Constants.TEMPLATE_TOPIC,
                     Constants.TEMPLATE_TOPIC,
