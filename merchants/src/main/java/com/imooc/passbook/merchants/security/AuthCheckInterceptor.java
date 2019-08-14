@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 权限拦截器
  * 使用该拦截器拦截所有HTTP请求，进行检查，再决定是否放行
+ * The Authentication Check Interceptor
+ * To Intercept and Check All the HTTP Request
  */
 @Component
 public class AuthCheckInterceptor implements HandlerInterceptor {
     /**
      * 如果HTTP请求没有token信息，就不能够通过校验
+     * If the HTTP has no Token Info in its header, then deny
      * @param httpServletRequest
      * @param httpServletResponse
      * @param o
@@ -56,6 +59,7 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
     /**
      * 这里是真正完成请求后执行的清理工作
      * 将线程的token给clear掉
+     * clear ther token info in current Thread
      * @param httpServletRequest
      * @param httpServletResponse
      * @param o
