@@ -10,6 +10,7 @@ public interface MerchantsDao extends JpaRepository<Merchants, Integer> {
 
     /**
      * 根据Id获取商户对象
+     * Query the Merchants Entity Object by Merchant Id
      * @param id 商户id
      * @return {@link Merchants}
      */
@@ -17,6 +18,7 @@ public interface MerchantsDao extends JpaRepository<Merchants, Integer> {
 
     /**
      * 根据商户名称获取商户对象
+     * Query the Merchants Entity Object by Merchant Name
      * @param name 商户名称
      * @return {@link Merchants}
      */
