@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 /**
  * 商户对象数据模型
+ * Merchants Entity Object
  */
 @Entity
 @Data
@@ -18,6 +19,7 @@ public class Merchants {
 
     /**
      * 商户Id, 主键
+     * Merchants Id, Primary Key
      */
     @Id
     @GeneratedValue
@@ -25,7 +27,7 @@ public class Merchants {
     private Integer id;
 
     /**
-     * 商户名称，全剧唯一
+     * 商户名称，全局唯一
      */
     @Basic
     @Column(name = "name", unique = true, nullable = false)
