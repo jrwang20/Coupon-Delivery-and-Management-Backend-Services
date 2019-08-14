@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 
 /**
  * 创建商户请求对象
+ * Creating Merchants Request VO
  */
 @Data
 @NoArgsConstructor
@@ -45,6 +46,7 @@ public class CreateMerchantsRequest {
      * 验证请求的有效性
      * 即，新传入的商户名称是否已经存在
      * 另外，校验创建请求中的各个必须的字段是否都填充完毕
+     * Validate if the Current Merchants already exist, and if all fields are not null
      * @param merchantsDao {@link MerchantsDao}
      * @return {@link ErrorCode}
      */
