@@ -24,7 +24,7 @@ public class MerchantsServTest {
     private IMerchantsServ merchantsServ;
 
     /**
-     * 测试返回结果：{"data":{"id":17},"errorCode":0,"errorMsg":""}
+     * The Test Result: {"data":{"id":17},"errorCode":0,"errorMsg":""}
      */
     @Test
 //    @Transactional
@@ -41,7 +41,7 @@ public class MerchantsServTest {
     }
 
     /**
-     * 测试返回结果
+     * The Test Result:
      * {
      *  "data":
      *  {
@@ -61,15 +61,15 @@ public class MerchantsServTest {
     }
 
     /**
-     * 测试结果
+     * The Test Result:
      *
-     * 打日志
+     * Log
      * DropPassTemplate: {"background":2,"desc":"description:
      * imooc","end":1565549262137,"hasToken":false,"id":19,
      * "limit":10000,"start":1564685262137,"summary":"summary: imooc",
      * "title":"title: imooc"}
      *
-     * 控制台打印ResponseVO
+     * ResponseVO
      * {"errorCode":0,"errorMsg":""}
      */
     @Test
