@@ -20,8 +20,8 @@
 	header: token/imooc-passbook-merchants
 	{
 		"name": "IMooc",
-		"logoUrl": "www.imooc.com",
-		"businessLicenseUrl": "www.imooc.com",
+		"logoUrl": "www.google.com",
+		"businessLicenseUrl": "www.google.com",
 		"phone": "180808800",
 		"address": "Beijing, China"
 	}
