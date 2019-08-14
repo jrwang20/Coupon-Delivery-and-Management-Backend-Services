@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 商户服务Controller
+ * 商户服务Controller of Merchents Module
  */
 @Slf4j
 @RestController
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class MerchantsCtl {
 
     /**
-     * 商户服务接口
+     * 商户服务接口 Autowired the Merchants Service
      */
     private final IMerchantsServ merchantsServ;
 
@@ -27,6 +27,9 @@ public class MerchantsCtl {
         this.merchantsServ = merchantsServ;
     }
 
+    /**
+     * The API to handle the Request of Creating Merchants
+     */
     @ResponseBody
     @PostMapping("/create")
     public Response createMerchants(@RequestBody CreateMerchantsRequest request) {
@@ -35,6 +38,9 @@ public class MerchantsCtl {
         return merchantsServ.createMerchants(request);
     }
 
+    /**
+     * The API to handle the Request of Querying the MErchants Infomation
+     */
     @ResponseBody
     @GetMapping("/{id}")
     public Response buildMerchantsInfo(@PathVariable Integer id) {
@@ -43,6 +49,9 @@ public class MerchantsCtl {
         return merchantsServ.buildMerchantsInfoById(id);
     }
 
+    /**
+     * The API to handle the Request of Dropping Coupon
+     */
     @ResponseBody
     @PostMapping("/drop")
     public Response dropPassTemplate(@RequestBody PassTemplate passTemplate) {
