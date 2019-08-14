@@ -2,6 +2,7 @@ package com.imooc.passbook.merchants.constant;
 
 /**
  * 描述优惠券的背景颜色的Enum
+ * The Coupon background Color Enum
  */
 public enum TemplateColor {
 
@@ -11,12 +12,12 @@ public enum TemplateColor {
     ;
 
     /**
-     * 标识背景颜色的代码
+     * 标识背景颜色的代码 Color Code
      */
     private Integer code;
 
     /**
-     * 颜色的描述
+     * 颜色的描述 Color Description
      */
     private String color;
 
