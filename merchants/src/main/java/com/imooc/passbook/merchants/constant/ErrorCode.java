@@ -1,7 +1,7 @@
 package com.imooc.passbook.merchants.constant;
 
 /**
- * 错误码的Enum定义
+ * The Error Code Enum
  */
 public enum ErrorCode {
 
@@ -15,12 +15,12 @@ public enum ErrorCode {
     ;
 
     /**
-     * 错误码
+     * 错误码 Error Code
      */
     private Integer code;
 
     /**
-     * 错误描述
+     * 错误描述 Error Description
      */
     private String desc;
 
