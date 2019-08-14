@@ -1,5 +1,12 @@
 # Coupon-Delivery-and-Management-Backend-Services
 
+## Project Business Intro
+* This is a multi-modules Coupon Delivery and Management Services, where Merchants can drop the Coupon templates and Consumers can gain and consume them.
+* Store the Merchants Info in MySQL, and Store the Coupon, Consumers, Consumers holding Coupon, and Users Comments Info in HBase.
+* After registration, Merchants can drop the Coupon Template with Token on service. The Coupon will be dropped to Kafka, sent to the Consumers Module and finally stored into HBase.
+* After registration, Consumers can query all the Coupon Info with Token on service. They will gain and consume Coupon, and make comments on both Coupon and App.
+* Token Info will be stored in Redis.
+
 ## Prepartion
 1. Start the Hbase to store the Coupon, Users, Users Holding Coupon, and Users Comments Data
 2. Start the MySQL to store the Merchants Data
