@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 创建商户响应对象
+ * The CreateMerchants ResponseVO
  */
 @Data
 @NoArgsConstructor
