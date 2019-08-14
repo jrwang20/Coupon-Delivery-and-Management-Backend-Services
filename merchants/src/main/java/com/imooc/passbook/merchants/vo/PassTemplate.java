@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- *
+ * Coupon Pass Template VO
  */
 @Data
 @NoArgsConstructor
@@ -18,6 +18,7 @@ public class PassTemplate {
 
     /**
      * 所属商户Id
+     * The Id of merchants which this Coupon Passtemplate belongs to
      */
     private Integer id;
 
@@ -38,12 +39,15 @@ public class PassTemplate {
 
     /**
      * 最大个数显示
+     * The Maximum number of this Coupon the Users can hold
      */
     private Long limit;
 
     /**
      * 优惠券是否有token，用于商户核销
      * token存储于redis，每次从中获取
+     * If this Coupon PassTemplate has Token
+     * The token will be stored in Redis
      */
     private Boolean hasToken;
 
