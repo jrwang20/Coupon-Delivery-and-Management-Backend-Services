@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.31</version>
+            <version>1.2.83</version>
         </dependency>
 
 <!--        apache提供的工具类，数组、时间、随机数相关的Utils-->
